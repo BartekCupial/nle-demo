@@ -1,4 +1,5 @@
 import pickle
+import random
 import timeit
 
 from nle_utils.envs.create_env import create_env
@@ -18,6 +19,7 @@ def view_demo(cfg, **kwargs):
         **kwargs,
     )
 
+    random.seed(cfg.seed)
     obs, info = env.reset(seed=cfg.seed)
 
     steps = 0
