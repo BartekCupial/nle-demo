@@ -13,7 +13,6 @@ conda install -yq cmake flex bison lit
 conda install -yq pybind11 -c conda-forge
 
 git submodule update --init --recursive
-git clone https://github.com/facebookresearch/minihack.git external/minihack
 python minihack/scripts/download_boxoban_levels.py
 pip install -e external/minihack
 pip install -e external/nle
