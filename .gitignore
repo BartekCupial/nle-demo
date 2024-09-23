@@ -144,4 +144,5 @@ artifacts
 *~
 
 cmake-build*
-sf_examples/vizdoom/doom/multiplayer/tests/_vizdoom/
+minihack_demo
+nethack_demo
