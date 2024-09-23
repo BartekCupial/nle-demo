@@ -1,7 +1,0 @@
-[submodule "external/nle_utils"]
-	path = external/nle_utils
-	url = https://github.com/BartekCupial/nle-utils.git
-[submodule "external/nle"]
-	path = external/nle
-	url = https://github.com/BartekCupial/nle.git
-	branch = fix_dungeons
