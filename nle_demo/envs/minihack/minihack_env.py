@@ -1,5 +1,5 @@
-from typing import Callable, List, Optional
 from pathlib import Path
+from typing import Callable, List, Optional
 
 import minihack  # NOQA: F401
 from minihack.envs import (
@@ -21,15 +21,8 @@ from minihack.envs import (
     sokoban,
 )
 from nle import nethack
-
 from nle_utils.utils.utils import is_module_available
-from nle_utils.wrappers import (
-    FinalStatsWrapper,
-    GymV21CompatibilityV0,
-    NLEDemo,
-    NLETimeLimit,
-    TaskRewardsInfoWrapper,
-)
+from nle_utils.wrappers import FinalStatsWrapper, GymV21CompatibilityV0, NLEDemo, NLETimeLimit, TaskRewardsInfoWrapper
 
 
 def minihack_available():

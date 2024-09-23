@@ -1,10 +1,11 @@
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.minihack.minihack_env import MINIHACK_ENVS, make_minihack_env
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.envs.minihack.minihack_params import add_extra_params_minihack_env
 from nle_utils.play import play
 from nle_utils.scripts.play_nethack import get_action
+
+from nle_demo.cfg.cfg import add_extra_params_demo
+from nle_demo.envs.minihack.minihack_env import MINIHACK_ENVS, make_minihack_env
 
 
 def register_minihack_envs():

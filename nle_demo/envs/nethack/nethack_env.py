@@ -1,14 +1,5 @@
-from typing import Optional
 from pathlib import Path
-
-from nle_utils.wrappers import (
-    FinalStatsWrapper,
-    GymV21CompatibilityV0,
-    NLEDemo,
-    NLETimeLimit,
-    TaskRewardsInfoWrapper,
-    TtyrecInfoWrapper,
-)
+from typing import Optional
 
 from nle.env.tasks import (
     NetHackChallenge,
@@ -20,7 +11,14 @@ from nle.env.tasks import (
     NetHackStaircase,
     NetHackStaircasePet,
 )
-
+from nle_utils.wrappers import (
+    FinalStatsWrapper,
+    GymV21CompatibilityV0,
+    NLEDemo,
+    NLETimeLimit,
+    TaskRewardsInfoWrapper,
+    TtyrecInfoWrapper,
+)
 
 NETHACK_ENVS = dict(
     nethack_staircase=NetHackStaircase,
@@ -34,7 +32,6 @@ NETHACK_ENVS = dict(
 )
 
 
-    
 def nethack_env_by_name(name):
     if name in NETHACK_ENVS.keys():
         return NETHACK_ENVS[name]
@@ -91,5 +88,3 @@ def make_nethack_env(env_name, cfg, env_config, render_mode: Optional[str] = Non
         env.render_mode = render_mode
 
     return env
-
-
