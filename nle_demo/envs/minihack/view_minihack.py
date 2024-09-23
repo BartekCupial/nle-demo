@@ -28,7 +28,7 @@ def parse_minihack_args(argv=None):
 def main():
     register_minihack_components()
     cfg = parse_minihack_args()
-    view_demo(cfg, get_action=get_action)
+    view_demo(cfg)
 
 
 if __name__ == "__main__":

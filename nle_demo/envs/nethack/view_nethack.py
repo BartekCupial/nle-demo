@@ -28,7 +28,7 @@ def parse_nethack_args(argv=None):
 def main():
     register_nethack_components()
     cfg = parse_nethack_args()
-    view_demo(cfg, get_action=get_action)
+    view_demo(cfg)
 
 
 if __name__ == "__main__":
