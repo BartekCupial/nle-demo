@@ -17,4 +17,4 @@ def add_extra_params_demo(parser: ArgumentParser):
     p.add_argument(
         "--demostep", default=-1, type=int, help="If demopath exists we will continue playing the demo from this step."
     )
-    p.add_argument("--save_every_k", default=100, type=int, help="save checkpoint every kth step.")
+    p.add_argument("--save_every_k", default=100000, type=int, help="save checkpoint every kth step.")
