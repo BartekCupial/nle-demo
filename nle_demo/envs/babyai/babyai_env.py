@@ -34,7 +34,7 @@ BABYAI_ENVS += [
 
 
 def make_babyai_env(env_name, cfg, env_config, render_mode: Optional[str] = None):
-    if env_name.startswith("BabyAI-MixedTrainLocal-v0"):
+    if env_name.startswith("BabyAI-MixedTrainLocal-v0/"):
         base_task, goal = env_name.split("/")
         while 1:
             env = gym.make(base_task)

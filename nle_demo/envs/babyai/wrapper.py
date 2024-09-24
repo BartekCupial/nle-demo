@@ -30,6 +30,12 @@ class BabyAIWrapper(gym.Wrapper):
         self.current_seed = seed
         return super().seed(seed=seed)
 
+    def reset(self, **kwargs) -> Any | Tuple[Any | dict]:
+        obs, descriptions = super().reset(**kwargs)
+        print(obs["mission"])
+
+        return obs
+
     def render(self, mode="human", **kwargs):
         if mode is not None:
             rendered = self.env.render(mode="rgb_array")
