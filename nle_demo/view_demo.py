@@ -51,10 +51,10 @@ def view_demo(cfg, **kwargs):
 
         if cfg.verbose:
             print("Final reward:", reward)
-            print("End status:", info["end_status"].name)
+            print("End status:", info.get("end_status", ""))
             print(f"Total reward: {total_reward}, Steps: {steps}, SPS: {steps / time_delta}", total_reward)
 
         break
     env.close()
 
-    return info["end_status"].name
+    return info
