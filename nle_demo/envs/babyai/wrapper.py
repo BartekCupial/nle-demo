@@ -6,7 +6,7 @@ import pygame
 from gym.utils.play import display_arr
 
 
-class BabaIsAIWrapper(gym.Wrapper):
+class BabyAIWrapper(gym.Wrapper):
     def __init__(self, env: gym.Env):
         super().__init__(env)
         # dummy spaces
@@ -23,19 +23,12 @@ class BabaIsAIWrapper(gym.Wrapper):
     def unwrapped(self):
         return self
 
-    def seed(self, seed):
-        self.current_seed = seed
-        return super().seed(seed=seed)
-
     def get_seeds(self):
         return self.current_seed
 
-    def reset(self, **kwargs) -> Any | tuple[Any, dict]:
-        obs = super().reset(**kwargs)
-        return obs
-
-    def step(self, action: Any) -> Tuple[Any, float, bool, dict]:
-        return super().step(action)
+    def seed(self, seed):
+        self.current_seed = seed
+        return super().seed(seed=seed)
 
     def render(self, mode="human", **kwargs):
         if mode is not None:

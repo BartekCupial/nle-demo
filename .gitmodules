@@ -8,3 +8,6 @@
 [submodule "external/minihack"]
 	path = external/minihack
 	url = https://github.com/facebookresearch/minihack.git
+[submodule "external/Grounding_LLMs_with_online_RL"]
+	path = external/Grounding_LLMs_with_online_RL
+	url = https://github.com/flowersteam/Grounding_LLMs_with_online_RL.git

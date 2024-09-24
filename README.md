@@ -14,6 +14,8 @@ conda install -yq pybind11 -c conda-forge
 
 git submodule update --init --recursive
 python minihack/scripts/download_boxoban_levels.py
+pip isntall -e external/Grounding_LLMs_with_online_RL/babyai-text/babyai
+pip isntall -e external/Grounding_LLMs_with_online_RL/babyai-text/gym-minigrid
 pip install -e external/minihack
 pip install -e external/nle
 pip install -e external/nle_utils

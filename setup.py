@@ -33,7 +33,7 @@ setup(
     license="MIT",
     keywords="reinforcement learning ai nle minihack",
     project_urls={},
-    install_requires=["colorlog"],
+    install_requires=["colorlog", "decorator", "pexpect", "colorma", "matplotlib~=3.5"],
     extras_require={
         # some tests require Atari and Mujoco so let's make sure dev environment has that
         "dev": ["black", "isort>=5.12", "pytest<8.0", "flake8", "pre-commit", "twine"]

@@ -15,11 +15,12 @@ class TextWorldWrapper(gym.Wrapper):
     def unwrapped(self):
         return self
 
-    def seed(self, seed):
-        self.current_seed = seed
-
     def get_seeds(self):
         return self.current_seed
+
+    def seed(self, seed):
+        self.current_seed = seed
+        return super().seed(seed=seed)
 
     def reset(self, **kwargs) -> Any | tuple[Any, dict]:
         obs, infos = super().reset(**kwargs)
