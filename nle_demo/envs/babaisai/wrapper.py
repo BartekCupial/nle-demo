@@ -42,12 +42,12 @@ class BabaIsAIWrapper(gym.Wrapper):
             rendered = self.env.render(mode="rgb_array")
 
             if self.video_size is None:
-                video_size = [rendered.shape[1], rendered.shape[0]]
+                self.video_size = [rendered.shape[1], rendered.shape[0]]
 
             if self.screen is None:
-                self.screen = pygame.display.set_mode(video_size)
+                self.screen = pygame.display.set_mode(self.video_size)
 
-            display_arr(self.screen, rendered, transpose=True, video_size=video_size)
+            display_arr(self.screen, rendered, transpose=True, video_size=self.video_size)
 
             pygame.display.flip()
             self.clock.tick(self.fps)

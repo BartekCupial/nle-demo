@@ -21,6 +21,7 @@ pip install -e external/minihack
 pip install -e external/nle
 pip install -e external/nle_utils
 pip install textworld
+pip install crafter
 pip install git+https://github.com/nacloos/baba-is-ai.git
 pip install -e .[dev]
 pre-commit install
