@@ -17,6 +17,7 @@ python minihack/scripts/download_boxoban_levels.py
 pip install -e external/minihack
 pip install -e external/nle
 pip install -e external/nle_utils
+pip install textworld
 pip install -e .[dev]
 pre-commit install
 ```
