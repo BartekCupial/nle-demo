@@ -8,13 +8,13 @@ from nle_demo.envs.babyai.babyai_env import BABYAI_ENVS, make_babyai_env
 from nle_demo.envs.babyai.babyai_params import add_extra_params_babyai_env
 
 
-def register_babyai_envs(cfg):
+def register_babyai_envs():
     for env_name in BABYAI_ENVS:
         register_env(env_name, make_babyai_env)
 
 
-def register_babyai_components(cfg):
-    register_babyai_envs(cfg)
+def register_babyai_components():
+    register_babyai_envs()
 
 
 def parse_babyai_args(argv=None):
@@ -58,8 +58,8 @@ def get_action(env, play_mode, obs):
 
 
 def main():
+    register_babyai_components()
     cfg = parse_babyai_args()
-    register_babyai_components(cfg)
     play(cfg, get_action=get_action)
 
 
