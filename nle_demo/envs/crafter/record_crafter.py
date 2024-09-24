@@ -9,7 +9,7 @@ from nle_demo.envs.crafter.crafter_params import add_extra_params_crafter_env
 
 
 def register_crafter_envs():
-    register_env("crafter", make_crafter_env)
+    register_env("default", make_crafter_env)
 
 
 def register_crafter_components():
