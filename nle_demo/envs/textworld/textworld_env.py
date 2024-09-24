@@ -1,10 +1,10 @@
 from pathlib import Path
 from typing import Optional
 
-from nle_utils.wrappers import NLEDemo
+from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
 
 from nle_demo.envs.textworld import global_textworld_context
-from nle_demo.envs.textworld.wrappers import GymV21CompatibilityV0, TextWorldWrapper
+from nle_demo.envs.textworld.wrapper import TextWorldWrapper
 
 
 def make_textworld_env(env_name, cfg, env_config, render_mode: Optional[str] = None):
