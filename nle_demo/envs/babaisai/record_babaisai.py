@@ -43,6 +43,8 @@ def get_action(env, play_mode, obs):
             if event.type == pygame.KEYDOWN:
                 if event.key in relevant_keys:
                     pressed_keys.append(event.key)
+            elif event.type == pygame.QUIT:
+                return None
 
         action = keys_to_action.get(tuple(sorted(pressed_keys)), None)  # TODO: was 0
         pressed_keys = []
