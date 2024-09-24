@@ -144,5 +144,9 @@ artifacts
 *~
 
 cmake-build*
+demos
 minihack_demo
 nethack_demo
+textworld_demo
+tw_games
+tw-games.zip
