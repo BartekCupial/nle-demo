@@ -70,7 +70,7 @@ def get_action(env, play_mode, obs):
 def main():
     print("Actions:")
     for key, action in keys_to_action.items():
-        print(f"  {pygame.key.name(key)}: {action}")
+        print(f"  {pygame.key.name(key[0])}: {action}")
 
     register_crafter_components()
     cfg = parse_crafter_args()
