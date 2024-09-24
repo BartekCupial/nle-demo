@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import Optional
 
-import babyai
+import babyai_text
 import gym
 from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
 
@@ -24,9 +24,23 @@ for env_spec in gym.envs.registry.all():
         if id not in broken_bonus_envs:
             BABYAI_ENVS.append(id)
 
+BABYAI_ENVS += [
+    "BabyAI-MixedTrainLocal-v0/goto",
+    "BabyAI-MixedTrainLocal-v0/pickup",
+    "BabyAI-MixedTrainLocal-v0/open",
+    "BabyAI-MixedTrainLocal-v0/putnext",
+    "BabyAI-MixedTrainLocal-v0/pick_up_seq_go_to",
+]
+
 
 def make_babyai_env(env_name, cfg, env_config, render_mode: Optional[str] = None):
-    env = gym.make(env_name)
+    if env_name.startswith("BabyAI-MixedTrainLocal-v0"):
+        base_task, goal = env_name.split("/")
+        while 1:
+            env = gym.make(base_task)
+            if env.env.action_kinds[0].replace(" ", "_") == goal:
+                break
+
     env = BabyAIWrapper(env)
     savedir = Path(cfg.demodir) / env_name
     env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)
