@@ -35,7 +35,11 @@ class BabaIsAIWrapper(gym.Wrapper):
         return obs
 
     def step(self, action: Any) -> Tuple[Any, float, bool, dict]:
-        return super().step(action)
+        obs, reward, done, info = super().step(action)
+        if done:
+            print(reward)
+
+        return obs, reward, done, info
 
     def render(self, mode="human", **kwargs):
         if mode is not None:

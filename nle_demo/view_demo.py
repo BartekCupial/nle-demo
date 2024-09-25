@@ -2,6 +2,7 @@ import pickle
 import random
 import timeit
 
+import numpy as np
 from nle_utils.envs.create_env import create_env
 from nle_utils.utils.attr_dict import AttrDict
 
@@ -18,8 +19,9 @@ def view_demo(cfg, **kwargs):
         render_mode=render_mode,
         **kwargs,
     )
-
-    random.seed(cfg.seed)
+    if cfg.seed is not None:
+        np.random.seed(cfg.seed)
+        random.seed(cfg.seed)
     obs, info = env.reset(seed=cfg.seed)
 
     steps = 0
