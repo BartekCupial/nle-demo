@@ -20,16 +20,16 @@ from nle_utils.wrappers import (
     TtyrecInfoWrapper,
 )
 
-NETHACK_ENVS = dict(
-    nethack_staircase=NetHackStaircase,
-    nethack_score=NetHackScore,
-    nethack_pet=NetHackStaircasePet,
-    nethack_oracle=NetHackOracle,
-    nethack_gold=NetHackGold,
-    nethack_eat=NetHackEat,
-    nethack_scout=NetHackScout,
-    nethack_challenge=NetHackChallenge,
-)
+NETHACK_ENVS = {
+    "NetHackStaircase-v0": NetHackStaircase,
+    "NetHackScore-v0": NetHackScore,
+    "NetHackStaircasePet-v0": NetHackStaircasePet,
+    "NetHackOracle-v0": NetHackOracle,
+    "NetHackGold-v0": NetHackGold,
+    "NetHackEat-v0": NetHackEat,
+    "NetHackScout-v0": NetHackScout,
+    "NetHackChallenge-v0": NetHackChallenge,
+}
 
 
 def nethack_env_by_name(name):
@@ -80,7 +80,11 @@ def make_nethack_env(env_name, cfg, env_config, render_mode: Optional[str] = Non
     env = FinalStatsWrapper(env, done_only=False)
     env = TtyrecInfoWrapper(env, done_only=False)
     savedir = Path(cfg.demodir) / env_name
-    env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)
+    game_name = f"seed_{cfg.seed}"
+    paths = [path.stem for path in savedir.iterdir() if game_name in path.stem]
+    if paths:
+        game_name = paths[0]
+    env = NLEDemo(env, savedir, game_name, save_every_k=cfg.save_every_k)
 
     env = GymV21CompatibilityV0(env=env)
 
