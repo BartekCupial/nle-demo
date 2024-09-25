@@ -1,3 +1,5 @@
+import pprint
+
 from nle_demo.envs.crafter.record_crafter import parse_crafter_args, register_crafter_components
 from nle_demo.view_demo import view_demo
 
@@ -5,7 +7,8 @@ from nle_demo.view_demo import view_demo
 def main():
     register_crafter_components()
     cfg = parse_crafter_args()
-    view_demo(cfg)
+    info = view_demo(cfg)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":

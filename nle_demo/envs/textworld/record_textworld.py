@@ -1,3 +1,5 @@
+import pprint
+
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.play import play
@@ -35,7 +37,8 @@ def get_action(env, mode, typing):
 def main():
     cfg = parse_textworld_args()
     register_textworld_components(cfg)
-    play(cfg, get_action=get_action)
+    info = play(cfg, get_action=get_action)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":

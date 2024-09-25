@@ -1,3 +1,5 @@
+import pprint
+
 import pygame
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
@@ -74,7 +76,8 @@ def main():
 
     register_crafter_components()
     cfg = parse_crafter_args()
-    play(cfg, get_action=get_action)
+    info = play(cfg, get_action=get_action)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":

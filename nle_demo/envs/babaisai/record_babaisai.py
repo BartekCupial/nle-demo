@@ -1,3 +1,5 @@
+import pprint
+
 import baba
 import pygame
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
@@ -58,7 +60,8 @@ def get_action(env, play_mode, obs):
 def main():
     register_babaisai_components()
     cfg = parse_babaisai_args()
-    play(cfg, get_action=get_action)
+    info = play(cfg, get_action=get_action)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":
