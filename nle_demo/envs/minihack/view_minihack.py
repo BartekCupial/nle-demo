@@ -1,7 +1,8 @@
+import pprint
+
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.envs.minihack.minihack_params import add_extra_params_minihack_env
-from nle_utils.scripts.play_nethack import get_action
 
 from nle_demo.cfg.cfg import add_extra_params_demo
 from nle_demo.envs.minihack.minihack_env import MINIHACK_ENVS, make_minihack_env
@@ -9,7 +10,7 @@ from nle_demo.view_demo import view_demo
 
 
 def register_minihack_envs():
-    for env_name in MINIHACK_ENVS.keys():
+    for env_name in MINIHACK_ENVS:
         register_env(env_name, make_minihack_env)
 
 
@@ -28,7 +29,8 @@ def parse_minihack_args(argv=None):
 def main():
     register_minihack_components()
     cfg = parse_minihack_args()
-    view_demo(cfg)
+    info = view_demo(cfg)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":

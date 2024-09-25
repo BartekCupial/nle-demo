@@ -1,3 +1,5 @@
+import pprint
+
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.envs.minihack.minihack_params import add_extra_params_minihack_env
@@ -28,7 +30,8 @@ def parse_minihack_args(argv=None):
 def main():
     register_minihack_components()
     cfg = parse_minihack_args()
-    play(cfg, get_action=get_action)
+    info = play(cfg, get_action=get_action)
+    pprint.pprint(info)
 
 
 if __name__ == "__main__":
