@@ -36,6 +36,14 @@ class BabyAIWrapper(gym.Wrapper):
 
         return obs
 
+    def step(self, action: Any) -> Tuple[Any | float | bool | dict]:
+        obs, reward, done, info = super().step(action)
+
+        if done:
+            print(f"reward: {reward}")
+
+        return obs, reward, done, info
+
     def render(self, mode="human", **kwargs):
         if mode is not None:
             rendered = self.env.render(mode="rgb_array")
