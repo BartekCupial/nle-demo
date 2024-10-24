@@ -3,7 +3,6 @@ from typing import Optional
 
 import gym
 import minihack  # NOQA: F401
-from nle import nethack
 from nle_utils.utils.utils import is_module_available
 from nle_utils.wrappers import FinalStatsWrapper, GymV21CompatibilityV0, NLEDemo, NLETimeLimit, TaskRewardsInfoWrapper
 
@@ -17,12 +16,6 @@ for env_spec in gym.envs.registry.all():
     id = env_spec.id
     if id.split("-")[0] == "MiniHack":
         MINIHACK_ENVS.append(id)
-
-
-def minihack_env_by_name(name):
-    if name in MINIHACK_ENVS.keys():
-        return MINIHACK_ENVS[name]
-    raise Exception("Unknown MiniHack env")
 
 
 def make_minihack_env(env_name, cfg, env_config, render_mode: Optional[str] = None):

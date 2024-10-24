@@ -11,7 +11,7 @@ from nle_demo.envs.minihack.minihack_env import MINIHACK_ENVS, make_minihack_env
 
 
 def register_minihack_envs():
-    for env_name in MINIHACK_ENVS.keys():
+    for env_name in MINIHACK_ENVS:
         register_env(env_name, make_minihack_env)
 
 

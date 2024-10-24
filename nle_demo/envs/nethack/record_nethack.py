@@ -11,7 +11,7 @@ from nle_demo.envs.nethack.nethack_env import NETHACK_ENVS, make_nethack_env
 
 
 def register_nethack_envs():
-    for env_name in NETHACK_ENVS.keys():
+    for env_name in NETHACK_ENVS:
         register_env(env_name, make_nethack_env)
 
 
