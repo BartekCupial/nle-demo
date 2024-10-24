@@ -1,16 +1,7 @@
 from pathlib import Path
 from typing import Optional
 
-from nle.env.tasks import (
-    NetHackChallenge,
-    NetHackEat,
-    NetHackGold,
-    NetHackOracle,
-    NetHackScore,
-    NetHackScout,
-    NetHackStaircase,
-    NetHackStaircasePet,
-)
+import gym
 from nle_utils.wrappers import (
     FinalStatsWrapper,
     GymV21CompatibilityV0,
@@ -20,16 +11,11 @@ from nle_utils.wrappers import (
     TtyrecInfoWrapper,
 )
 
-NETHACK_ENVS = {
-    "NetHackStaircase-v0": NetHackStaircase,
-    "NetHackScore-v0": NetHackScore,
-    "NetHackStaircasePet-v0": NetHackStaircasePet,
-    "NetHackOracle-v0": NetHackOracle,
-    "NetHackGold-v0": NetHackGold,
-    "NetHackEat-v0": NetHackEat,
-    "NetHackScout-v0": NetHackScout,
-    "NetHackChallenge-v0": NetHackChallenge,
-}
+NETHACK_ENVS = []
+for env_spec in gym.envs.registry.all():
+    id = env_spec.id
+    if id.split("-")[0] == "NetHack":
+        NETHACK_ENVS.append(id)
 
 
 def nethack_env_by_name(name):
