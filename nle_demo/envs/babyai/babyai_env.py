@@ -1,9 +1,9 @@
 from pathlib import Path
 from typing import Optional
 
-import babyai_text
-import gym
-from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
+import gymnasium as gym
+import minigrid
+from nle_utils.wrappers import NLEDemo
 
 from nle_demo.envs.babyai.wrapper import BabyAIWrapper
 
@@ -18,8 +18,8 @@ broken_bonus_envs = {
 
 # get all babyai envs (except the broken ones)
 BABYAI_ENVS = []
-for env_spec in gym.envs.registry.all():
-    id = env_spec.id
+for env_spec in gym.envs.registry:
+    id = env_spec
     if id.split("-")[0] == "BabyAI":
         if id not in broken_bonus_envs:
             BABYAI_ENVS.append(id)
@@ -37,16 +37,12 @@ def make_babyai_env(env_name, cfg, env_config, render_mode: Optional[str] = None
     if env_name.startswith("BabyAI-MixedTrainLocal-v0/"):
         base_task, goal = env_name.split("/")
         while 1:
-            env = gym.make(base_task)
-            if env.env.action_kinds[0].replace(" ", "_") == goal:
+            env = gym.make(base_task, render_mode=render_mode)
+            if env.unwrapped.action_kinds[0].replace(" ", "_") == goal:
                 break
 
     env = BabyAIWrapper(env)
     savedir = Path(cfg.demodir) / env_name
     env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)
-    env = GymV21CompatibilityV0(env=env)
-
-    if render_mode:
-        env.render_mode = render_mode
 
     return env
