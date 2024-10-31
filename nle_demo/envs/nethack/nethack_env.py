@@ -58,16 +58,13 @@ def make_nethack_env(env_name, cfg, env_config, render_mode: Optional[str] = Non
     env = TaskRewardsInfoWrapper(env, done_only=False)
     env = FinalStatsWrapper(env, done_only=False)
     env = TtyrecInfoWrapper(env, done_only=False)
+    env = GymV21CompatibilityV0(env=env, render_mode=render_mode)
+
     savedir = Path(cfg.demodir) / env_name
     game_name = f"seed_{cfg.seed}"
     paths = [path.stem for path in savedir.iterdir() if game_name in path.stem]
     if paths:
         game_name = paths[0]
     env = NLEDemo(env, savedir, game_name, save_every_k=cfg.save_every_k)
-
-    env = GymV21CompatibilityV0(env=env)
-
-    if render_mode:
-        env.render_mode = render_mode
 
     return env

@@ -57,12 +57,8 @@ def make_minihack_env(env_name, cfg, env_config, render_mode: Optional[str] = No
 
     env = TaskRewardsInfoWrapper(env, done_only=False)
     env = FinalStatsWrapper(env, done_only=False)
+    env = GymV21CompatibilityV0(env=env, render_mode=render_mode)
     savedir = Path(cfg.demodir) / env_name
     env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)
-
-    env = GymV21CompatibilityV0(env=env)
-
-    if render_mode:
-        env.render_mode = render_mode
 
     return env

@@ -12,10 +12,7 @@ def make_babaisai_env(env_name, cfg, env_config, render_mode: Optional[str] = No
     env = make(env_name, **env_kwargs)
     env = BabaIsAIWrapper(env)
     savedir = Path(cfg.demodir) / env_name
+    env = GymV21CompatibilityV0(env=env, render_mode=render_mode)
     env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)
-    env = GymV21CompatibilityV0(env=env)
-
-    if render_mode:
-        env.render_mode = render_mode
 
     return env
