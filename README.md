@@ -8,23 +8,21 @@ apt-get install -yq autoconf libtool pkg-config libbz2-dev
 
 conda create -n nle_demo python=3.10
 conda activate nle_demo
-conda update -n base -c defaults conda
-conda install -yq cmake flex bison lit
-conda install -yq pybind11 -c conda-forge
 
 git submodule update --init --recursive
-python minihack/scripts/download_boxoban_levels.py
-pip install -e external/Grounding_LLMs_with_online_RL/babyai-text
-pip install -e external/Grounding_LLMs_with_online_RL/babyai-text/babyai
-pip install -e external/Grounding_LLMs_with_online_RL/babyai-text/gym-minigrid
-pip install -e external/minihack
-pip install -e external/nle
-pip install -e external/nle_utils
+pip install https://github.com/BartekCupial/nle/releases/download/balrog/nle-0.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+pip install git+https://github.com/facebookresearch/minihack
 pip install textworld
 pip install crafter
 pip install git+https://github.com/nacloos/baba-is-ai.git
+pip install git+https://github.com/BartekCupial/Minigrid.git
+pip install -e external/nle_utils
 pip install -e .[dev]
 pre-commit install
+
+# to download minihack boxoban levels
+python -c "import sys,os,subprocess,minihack; subprocess.run([sys.executable, os.path.join(os.path.dirname(minihack.__file__), 'scripts', 'download_boxob
+an_levels.py')])"
 ```
 
 ## Record
