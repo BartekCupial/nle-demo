@@ -25,12 +25,14 @@ class BabyAIWrapper(gym.Wrapper):
     def reset(self, **kwargs) -> Any | Tuple[Any | dict]:
         obs, info = super().reset(**kwargs)
         print(obs["mission"])
+        print(info["descriptions"])
 
         return obs, info
 
     def step(self, action: Any) -> Tuple[Any | float | bool | dict]:
         obs, reward, terminated, truncated, info = super().step(action)
         done = terminated or truncated
+        print(info["descriptions"])
 
         if done:
             print(f"reward: {reward}")
