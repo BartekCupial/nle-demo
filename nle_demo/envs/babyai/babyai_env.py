@@ -7,6 +7,8 @@ from nle_utils.wrappers import NLEDemo
 
 from nle_demo.envs.babyai.wrapper import BabyAIWrapper
 
+minigrid.register_minigrid_envs()
+
 # see discussion starting here: https://github.com/Farama-Foundation/Minigrid/pull/381#issuecomment-1646800992
 broken_bonus_envs = {
     "BabyAI-PutNextS5N2Carrying-v0",

@@ -11,10 +11,6 @@ class BabyAIWrapper(gym.Wrapper):
         self.action_space = gym.spaces.Discrete(1)
         self.current_seed = None
 
-    @property
-    def unwrapped(self):
-        return self
-
     def get_seeds(self):
         return self.current_seed
 

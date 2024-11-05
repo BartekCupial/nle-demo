@@ -29,13 +29,13 @@ def parse_babyai_args(argv=None):
 
 def get_action(env, play_mode, obs):
     keys_to_action = {
-        (pygame.K_UP,): env.actions.forward,
-        (pygame.K_LEFT,): env.actions.left,
-        (pygame.K_RIGHT,): env.actions.right,
-        (pygame.K_SPACE,): env.actions.toggle,
-        (pygame.K_COMMA,): env.actions.pickup,
-        (pygame.K_d,): env.actions.drop,
-        (pygame.K_SEMICOLON,): env.actions.done,
+        (pygame.K_UP,): env.unwrapped.actions.forward,
+        (pygame.K_LEFT,): env.unwrapped.actions.left,
+        (pygame.K_RIGHT,): env.unwrapped.actions.right,
+        (pygame.K_SPACE,): env.unwrapped.actions.toggle,
+        (pygame.K_COMMA,): env.unwrapped.actions.pickup,
+        (pygame.K_d,): env.unwrapped.actions.drop,
+        (pygame.K_SEMICOLON,): env.unwrapped.actions.done,
     }
     relevant_keys = set(sum(map(list, keys_to_action.keys()), []))
     pressed_keys = []
