@@ -19,10 +19,6 @@ class CrafterWrapper(gym.Wrapper):
         self.clock = pygame.time.Clock()
         self.fps = 30
 
-    @property
-    def unwrapped(self):
-        return self
-
     def get_seeds(self):
         return self.current_seed
 

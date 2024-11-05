@@ -64,7 +64,7 @@ def get_action(env, play_mode, obs):
         pressed_keys = []
 
         if action is not None:
-            return env.action_names.index(action)
+            return env.unwrapped.action_names.index(action)
 
         env.render()
 

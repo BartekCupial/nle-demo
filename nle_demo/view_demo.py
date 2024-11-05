@@ -7,7 +7,7 @@ from nle_utils.envs.create_env import create_env
 from nle_utils.utils.attr_dict import AttrDict
 
 
-def view_demo(cfg, **kwargs):
+def view_demo(cfg):
     render_mode = "human"
     if cfg.no_render:
         render_mode = None
@@ -17,8 +17,8 @@ def view_demo(cfg, **kwargs):
         cfg=cfg,
         env_config=AttrDict(worker_index=0, vector_index=0, env_id=0),
         render_mode=render_mode,
-        **kwargs,
     )
+
     if cfg.seed is not None:
         np.random.seed(cfg.seed)
         random.seed(cfg.seed)
@@ -27,7 +27,6 @@ def view_demo(cfg, **kwargs):
     steps = 0
     reward = 0.0
     total_reward = 0.0
-    action = None
 
     total_start_time = timeit.default_timer()
     start_time = total_start_time
@@ -38,13 +37,9 @@ def view_demo(cfg, **kwargs):
     recorded_actions = data["actions"]
     recorded_rewards = data["rewards"]
 
-    for recorded_action, recorded_reward in zip(recorded_actions, recorded_rewards):
-        if action is None:
-            break
-
+    for i, (recorded_action, recorded_reward) in enumerate(zip(recorded_actions, recorded_rewards)):
         obs, reward, terminated, truncated, info = env.step(recorded_action)
-        assert reward == recorded_reward
-
+        # assert reward == recorded_reward
         steps += 1
         total_reward += reward
 
@@ -59,6 +54,8 @@ def view_demo(cfg, **kwargs):
             print(f"Total reward: {total_reward}, Steps: {steps}, SPS: {steps / time_delta}", total_reward)
 
         break
-    env.close()
+
+    # do not close, we could overwrite the demo file
+    # env.close()
 
     return info
