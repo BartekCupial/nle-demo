@@ -3,9 +3,6 @@
 ## Installation
 
 ```bash
-# nle dependencies
-apt-get install -yq autoconf libtool pkg-config libbz2-dev
-
 conda create -n nle_demo python=3.10
 conda activate nle_demo
 
@@ -21,8 +18,7 @@ pip install -e .[dev]
 pre-commit install
 
 # to download minihack boxoban levels
-python -c "import sys,os,subprocess,minihack; subprocess.run([sys.executable, os.path.join(os.path.dirname(minihack.__file__), 'scripts', 'download_boxob
-an_levels.py')])"
+python -c "import sys,os,subprocess,minihack; subprocess.run([sys.executable, os.path.join(os.path.dirname(minihack.__file__), 'scripts', 'download_boxoban_levels.py')])"
 ```
 
 ## Record
@@ -30,17 +26,17 @@ an_levels.py')])"
 record nethack
 ```bash 
 python -m nle_demo.envs.nethack.record_nethack \
-    --env=nethack_challenge \
+    --env=NetHackChallenge-v0 \
     --seed=0 \
-    --demodir=nethack_demo
+    --demodir=demos/nethack_demo
 ```
 
 record minihack
 ```bash 
 python -m nle_demo.envs.minihack.record_minihack \
-    --env=corridor3 \
+    --env=MiniHack-Corridor-R3-v0 \
     --seed=0 \
-    --demodir=minihack_demo
+    --demodir=demos/minihack_demo
 ```
 
 ## View
@@ -48,15 +44,15 @@ python -m nle_demo.envs.minihack.record_minihack \
 view nethack
 ```bash 
 python -m nle_demo.envs.nethack.view_nethack \
-    --env=nethack_challenge \
+    --env=NetHackChallenge-v0 \
     --seed=0 \
-    --demodir=nethack_demo
+    --demodir=demos/nethack_demo
 ```
 
 view minihack
 ```bash 
 python -m nle_demo.envs.minihack.view_minihack \
-    --env=corridor3 \
+    --env=MiniHack-Corridor-R3-v0 \
     --seed=0 \
-    --demodir=minihack_demo
+    --demodir=demos/minihack_demo
 ```
