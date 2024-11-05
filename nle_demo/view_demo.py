@@ -36,12 +36,14 @@ def view_demo(cfg, **kwargs):
         data = pickle.load(f)
 
     recorded_actions = data["actions"]
+    recorded_rewards = data["rewards"]
 
-    for action in recorded_actions:
+    for recorded_action, recorded_reward in zip(recorded_actions, recorded_rewards):
         if action is None:
             break
 
-        obs, reward, terminated, truncated, info = env.step(action)
+        obs, reward, terminated, truncated, info = env.step(recorded_action)
+        assert reward == recorded_reward
 
         steps += 1
         total_reward += reward
