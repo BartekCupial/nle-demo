@@ -56,3 +56,9 @@ python -m nle_demo.envs.minihack.view_minihack \
     --seed=0 \
     --demodir=demos/minihack_demo
 ```
+
+## Troubleshooting pygame
+
+    export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libstdc++.so.6
+
+https://stackoverflow.com/questions/71010343/cannot-load-swrast-and-iris-drivers-in-fedora-35/72200748#72200748
