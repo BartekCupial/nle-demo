@@ -12,12 +12,8 @@ def make_crafter_env(env_name, cfg, env_config, render_mode: Optional[str] = Non
     crafter.constants.items["health"]["max"] = cfg.health
     crafter.constants.items["health"]["initial"] = cfg.health
 
-    size = list(cfg.size)
-    size[0] = size[0] or cfg.window[0]
-    size[1] = size[1] or cfg.window[1]
-
-    env = crafter.Env(area=cfg.area, view=cfg.view, length=cfg.length, seed=cfg.seed)
-    env = CrafterWrapper(env, size)
+    env = crafter.Env(area=cfg.area, view=cfg.view, length=cfg.length, size=cfg.size, seed=cfg.seed)
+    env = CrafterWrapper(env)
     savedir = Path(cfg.demodir) / env_name
     env = GymV21CompatibilityV0(env=env, render_mode=render_mode)
     env = NLEDemo(env, savedir, f"seed_{cfg.seed}", save_every_k=cfg.save_every_k)

@@ -7,14 +7,13 @@ from gym.utils.play import display_arr
 
 
 class CrafterWrapper(gym.Wrapper):
-    def __init__(self, env: gym.Env, video_size=None):
+    def __init__(self, env: gym.Env):
         super().__init__(env)
         # dummy spaces
         self.observation_space = gym.spaces.Discrete(1)
         self.action_space = gym.spaces.Discrete(1)
         self.current_seed = None
 
-        self.video_size = video_size
         self.screen = None
         self.clock = pygame.time.Clock()
         self.fps = 30
@@ -51,15 +50,12 @@ class CrafterWrapper(gym.Wrapper):
 
     def render(self, mode="human", **kwargs):
         if mode is not None:
-            rendered = self.env.render(self.video_size)
-
-            if self.video_size is None:
-                self.video_size = [rendered.shape[1], rendered.shape[0]]
+            rendered = self.env.render()
 
             if self.screen is None:
-                self.screen = pygame.display.set_mode(self.video_size)
+                self.screen = pygame.display.set_mode(rendered.shape[:2])
 
-            display_arr(self.screen, rendered, transpose=True, video_size=self.video_size)
+            display_arr(self.screen, rendered, video_size=rendered.shape[:2], transpose=True)
 
             pygame.display.flip()
             self.clock.tick(self.fps)
