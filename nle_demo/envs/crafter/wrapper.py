@@ -3,7 +3,8 @@ from typing import Any, Tuple
 
 import gym
 import pygame
-from gym.utils.play import display_arr
+
+# from gym.utils.play import display_arr
 
 
 class CrafterWrapper(gym.Wrapper):
@@ -55,7 +56,7 @@ class CrafterWrapper(gym.Wrapper):
             if self.screen is None:
                 self.screen = pygame.display.set_mode(rendered.shape[:2])
 
-            display_arr(self.screen, rendered, video_size=rendered.shape[:2], transpose=True)
+            display_arr(self.screen, rendered, video_size=rendered.shape[:2], transpose=False)
 
             pygame.display.flip()
             self.clock.tick(self.fps)
@@ -66,3 +67,24 @@ class CrafterWrapper(gym.Wrapper):
             self.screen = None
 
         return super().close()
+
+
+def display_arr(screen, arr, video_size, transpose=True):
+    # Create a surface that supports alpha
+    surface = pygame.Surface(video_size, pygame.SRCALPHA)
+
+    if transpose:
+        arr = arr.swapaxes(0, 1)
+
+    # Convert RGBA array to surface using pixel-by-pixel copying
+    pygame_surface_array = pygame.surfarray.pixels3d(surface)
+    pygame_surface_array[:, :, :3] = arr[:, :, :3]
+    del pygame_surface_array  # Release the surface lock
+
+    # Handle alpha channel separately
+    if arr.shape[2] == 4:
+        alpha_surface = pygame.surfarray.pixels_alpha(surface)
+        alpha_surface[:] = arr[:, :, 3]
+        del alpha_surface
+
+    screen.blit(surface, (0, 0))
