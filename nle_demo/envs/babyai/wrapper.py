@@ -34,3 +34,9 @@ class BabyAIWrapper(gym.Wrapper):
             print(f"reward: {reward}")
 
         return obs, reward, terminated, truncated, info
+
+    def render_image(self):
+        img = self.env.get_wrapper_attr("get_frame")(
+            self.env.get_wrapper_attr("highlight"), self.env.get_wrapper_attr("tile_size"), True
+        )
+        return img
