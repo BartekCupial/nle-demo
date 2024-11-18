@@ -12,6 +12,8 @@ from nle_utils.wrappers import (
     TtyrecInfoWrapper,
 )
 
+from nle_demo.envs.nethack.wrapper import NLEWrapper
+
 NETHACK_ENVS = []
 for env_spec in gym.envs.registry.all():
     id = env_spec.id
@@ -51,6 +53,7 @@ def make_nethack_env(env_name, cfg, env_config, render_mode: Optional[str] = Non
         kwargs["max_episode_steps"] = cfg.max_episode_steps
 
     env = gym.make(env_name, **kwargs)
+    env = NLEWrapper(env)
 
     # wrap NLE with timeout
     env = NLETimeLimit(env)

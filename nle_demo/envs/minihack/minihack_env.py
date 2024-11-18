@@ -6,6 +6,8 @@ import minihack  # NOQA: F401
 from nle_utils.utils.utils import is_module_available
 from nle_utils.wrappers import FinalStatsWrapper, GymV21CompatibilityV0, NLEDemo, NLETimeLimit, TaskRewardsInfoWrapper
 
+from nle_demo.envs.nethack.wrapper import NLEWrapper
+
 
 def minihack_available():
     return is_module_available("minihack")
@@ -51,6 +53,7 @@ def make_minihack_env(env_name, cfg, env_config, render_mode: Optional[str] = No
         kwargs["max_episode_steps"] = cfg.max_episode_steps
 
     env = gym.make(env_name, **kwargs)
+    env = NLEWrapper(env)
 
     # wrap NLE with timeout
     env = NLETimeLimit(env)
