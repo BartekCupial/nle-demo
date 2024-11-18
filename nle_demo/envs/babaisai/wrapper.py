@@ -56,6 +56,9 @@ class BabaIsAIWrapper(gym.Wrapper):
             pygame.display.flip()
             self.clock.tick(self.fps)
 
+    def render_image(self):
+        return self.env.render(mode="rgb_array")
+
     def close(self):
         if self.screen is not None:
             pygame.quit()

@@ -30,10 +30,10 @@ def parse_babaisai_args(argv=None):
 
 def get_action(env, play_mode, obs):
     keys_to_action = {
-        (pygame.K_UP,): env.actions.up,
-        (pygame.K_DOWN,): env.actions.down,
-        (pygame.K_LEFT,): env.actions.left,
-        (pygame.K_RIGHT,): env.actions.right,
+        (pygame.K_UP,): env.unwrapped.actions.up,
+        (pygame.K_DOWN,): env.unwrapped.actions.down,
+        (pygame.K_LEFT,): env.unwrapped.actions.left,
+        (pygame.K_RIGHT,): env.unwrapped.actions.right,
     }
     relevant_keys = set(sum(map(list, keys_to_action.keys()), []))
     pressed_keys = []
