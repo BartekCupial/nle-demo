@@ -1,10 +1,10 @@
-# NLE DEMO
+# BALROG DEMO
 
 ## Installation
 
 ```bash
-conda create -n nle_demo python=3.10
-conda activate nle_demo
+conda create -n demo python=3.10
+conda activate demo
 
 git submodule update --init --recursive
 pip install https://github.com/BartekCupial/nle/releases/download/balrog/nle-0.9.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
@@ -25,7 +25,7 @@ python -c "import sys,os,subprocess,minihack; subprocess.run([sys.executable, os
 
 record nethack
 ```bash 
-python -m nle_demo.envs.nethack.record_nethack \
+python -m balrog_demo.envs.nethack.record_nethack \
     --env=NetHackChallenge-v0 \
     --seed=0 \
     --demodir=demos/nethack_demo
@@ -33,7 +33,7 @@ python -m nle_demo.envs.nethack.record_nethack \
 
 record minihack
 ```bash 
-python -m nle_demo.envs.minihack.record_minihack \
+python -m balrog_demo.envs.minihack.record_minihack \
     --env=MiniHack-Corridor-R3-v0 \
     --seed=0 \
     --demodir=demos/minihack_demo
@@ -43,7 +43,7 @@ python -m nle_demo.envs.minihack.record_minihack \
 
 view nethack
 ```bash 
-python -m nle_demo.envs.nethack.view_nethack \
+python -m balrog_demo.envs.nethack.view_nethack \
     --env=NetHackChallenge-v0 \
     --seed=0 \
     --demodir=demos/nethack_demo
@@ -51,7 +51,7 @@ python -m nle_demo.envs.nethack.view_nethack \
 
 view minihack
 ```bash 
-python -m nle_demo.envs.minihack.view_minihack \
+python -m balrog_demo.envs.minihack.view_minihack \
     --env=MiniHack-Corridor-R3-v0 \
     --seed=0 \
     --demodir=demos/minihack_demo

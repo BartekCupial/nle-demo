@@ -1,4 +1,4 @@
-from nle_demo.envs.textworld.textworld_factory import TextWorldFactory
+from balrog_demo.envs.textworld.textworld_factory import TextWorldFactory
 
 TEXTWORLD_FACTORY = None
 

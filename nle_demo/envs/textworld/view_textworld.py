@@ -1,7 +1,7 @@
 import pprint
 
-from nle_demo.envs.textworld.record_textworld import parse_textworld_args, register_textworld_components
-from nle_demo.view_demo import view_demo
+from balrog_demo.envs.textworld.record_textworld import parse_textworld_args, register_textworld_components
+from balrog_demo.view_demo import view_demo
 
 
 def main():

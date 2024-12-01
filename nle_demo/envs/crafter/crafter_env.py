@@ -3,9 +3,8 @@ from typing import Optional
 
 import crafter
 import gym
+from balrog_demo.envs.crafter.wrapper import CrafterWrapper
 from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
-
-from nle_demo.envs.crafter.wrapper import CrafterWrapper
 
 
 def make_crafter_env(env_name, cfg, env_config, render_mode: Optional[str] = None):

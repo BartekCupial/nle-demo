@@ -1,13 +1,12 @@
 import pprint
 
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.textworld import global_textworld_context
+from balrog_demo.envs.textworld.textworld_env import make_textworld_env
+from balrog_demo.envs.textworld.textworld_params import add_extra_params_textworld_env
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.play import play
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.textworld import global_textworld_context
-from nle_demo.envs.textworld.textworld_env import make_textworld_env
-from nle_demo.envs.textworld.textworld_params import add_extra_params_textworld_env
 
 
 def register_textworld_envs(cfg):

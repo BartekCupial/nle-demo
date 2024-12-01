@@ -1,13 +1,12 @@
 import pprint
 
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.nethack.nethack_env import NETHACK_ENVS, make_nethack_env
+from balrog_demo.view_demo import view_demo
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.envs.nethack.nethack_params import add_extra_params_nethack_env
 from nle_utils.scripts.play_nethack import get_action
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.nethack.nethack_env import NETHACK_ENVS, make_nethack_env
-from nle_demo.view_demo import view_demo
 
 
 def register_nethack_envs():

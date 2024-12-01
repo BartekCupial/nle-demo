@@ -1,7 +1,7 @@
 import pprint
 
-from nle_demo.envs.babyai.record_babyai import parse_babyai_args, register_babyai_components
-from nle_demo.view_demo import view_demo
+from balrog_demo.envs.babyai.record_babyai import parse_babyai_args, register_babyai_components
+from balrog_demo.view_demo import view_demo
 
 
 def main():

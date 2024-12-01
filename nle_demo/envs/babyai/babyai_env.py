@@ -3,9 +3,8 @@ from typing import Optional
 
 import gymnasium as gym
 import minigrid
+from balrog_demo.envs.babyai.wrapper import BabyAIWrapper
 from nle_utils.wrappers import NLEDemo
-
-from nle_demo.envs.babyai.wrapper import BabyAIWrapper
 
 minigrid.register_minigrid_envs()
 

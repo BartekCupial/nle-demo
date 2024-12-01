@@ -1,13 +1,12 @@
 import pprint
 import sys
 
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.babaisai.babaisai_params import add_extra_params_babaisai_env
+from balrog_demo.envs.babaisai.record_babaisai import register_babaisai_components
+from balrog_demo.view_demo import view_demo
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.utils.context import global_env_registry
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.babaisai.babaisai_params import add_extra_params_babaisai_env
-from nle_demo.envs.babaisai.record_babaisai import register_babaisai_components
-from nle_demo.view_demo import view_demo
 
 
 def parse_babaisai_args(argv=None):

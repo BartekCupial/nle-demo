@@ -1,13 +1,12 @@
 import pprint
 
 import pygame
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.crafter.crafter_env import make_crafter_env
+from balrog_demo.envs.crafter.crafter_params import add_extra_params_crafter_env
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.play import play
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.crafter.crafter_env import make_crafter_env
-from nle_demo.envs.crafter.crafter_params import add_extra_params_crafter_env
 
 
 def register_crafter_envs():

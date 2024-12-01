@@ -3,10 +3,9 @@ from typing import Optional
 
 import gym
 import minihack  # NOQA: F401
+from balrog_demo.envs.nethack.wrapper import NLEWrapper
 from nle_utils.utils.utils import is_module_available
 from nle_utils.wrappers import FinalStatsWrapper, GymV21CompatibilityV0, NLEDemo, NLETimeLimit, TaskRewardsInfoWrapper
-
-from nle_demo.envs.nethack.wrapper import NLEWrapper
 
 
 def minihack_available():
@@ -40,7 +39,6 @@ def make_minihack_env(env_name, cfg, env_config, render_mode: Optional[str] = No
 
     kwargs = dict(
         observation_keys=observation_keys,
-        character=cfg.character,
         penalty_step=cfg.penalty_step,
         penalty_time=cfg.penalty_time,
         penalty_mode=cfg.fn_penalty_step,
@@ -51,6 +49,9 @@ def make_minihack_env(env_name, cfg, env_config, render_mode: Optional[str] = No
 
     if cfg.max_episode_steps is not None:
         kwargs["max_episode_steps"] = cfg.max_episode_steps
+
+    if cfg.character is not None:
+        kwargs["character"] = cfg.character
 
     env = gym.make(env_name, **kwargs)
     env = NLEWrapper(env)

@@ -1,7 +1,7 @@
 import pprint
 
-from nle_demo.envs.babaisai.record_babaisai import parse_babaisai_args, register_babaisai_components
-from nle_demo.view_demo import view_demo
+from balrog_demo.envs.babaisai.record_babaisai import parse_babaisai_args, register_babaisai_components
+from balrog_demo.view_demo import view_demo
 
 
 def main():

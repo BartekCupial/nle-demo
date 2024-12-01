@@ -23,15 +23,15 @@ _docs_deps = [
 
 setup(
     # Information
-    name="nle-demo",
-    description="Demo for NLE and MiniHack",
+    name="balrog-demo",
+    description="Demo for BALROG",
     long_description=long_description,
     long_description_content_type="text/markdown",
     version="2.1.2",
-    url="https://github.com/BartekCupial/nle-demo",
+    url="https://github.com/balrog-ai/balrog-demo",
     author="Bartłomiej Cupiał",
     license="MIT",
-    keywords="reinforcement learning ai nle minihack",
+    keywords="reinforcement learning ai llm",
     project_urls={},
     install_requires=["colorlog", "decorator", "pexpect", "colorama", "matplotlib~=3.5"],
     extras_require={
@@ -40,7 +40,7 @@ setup(
         + _docs_deps
     },
     package_dir={"": "./"},
-    packages=setuptools.find_packages(where="./", include=["nle_demo*"]),
+    packages=setuptools.find_packages(where="./", include=["balrog_demo*"]),
     include_package_data=True,
     python_requires=">=3.8",
 )

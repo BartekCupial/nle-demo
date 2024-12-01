@@ -5,6 +5,6 @@ for env in BabyAI-MixedTrainLocal-v0/goto BabyAI-MixedTrainLocal-v0/pickup BabyA
 do
     for seed in 0 1 2 3 4
     do
-    python -m nle_demo.envs.babyai.record_babyai --env=$env --seed=$seed --demodir=demos/babyai_demo
+    python -m balrog_demo.envs.babyai.record_babyai --env=$env --seed=$seed --demodir=demos/babyai_demo
     done
 done

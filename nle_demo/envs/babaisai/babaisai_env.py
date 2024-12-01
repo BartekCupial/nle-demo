@@ -2,9 +2,8 @@ from pathlib import Path
 from typing import Optional
 
 from baba import make
+from balrog_demo.envs.babaisai.wrapper import BabaIsAIWrapper
 from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
-
-from nle_demo.envs.babaisai.wrapper import BabaIsAIWrapper
 
 
 def make_babaisai_env(env_name, cfg, env_config, render_mode: Optional[str] = None):

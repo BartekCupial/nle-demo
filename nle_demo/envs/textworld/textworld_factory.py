@@ -8,7 +8,7 @@ import gym
 import textworld
 import textworld.gym
 
-workspace_dir = os.path.dirname(importlib.resources.files("nle_demo")._paths[0])
+workspace_dir = os.path.dirname(importlib.resources.files("balrog_demo")._paths[0])
 
 
 class TextWorldFactory:

@@ -1,10 +1,9 @@
 from pathlib import Path
 from typing import Optional
 
+from balrog_demo.envs.textworld import global_textworld_context
+from balrog_demo.envs.textworld.wrapper import TextWorldWrapper
 from nle_utils.wrappers import GymV21CompatibilityV0, NLEDemo
-
-from nle_demo.envs.textworld import global_textworld_context
-from nle_demo.envs.textworld.wrapper import TextWorldWrapper
 
 
 def make_textworld_env(env_name, cfg, env_config, render_mode: Optional[str] = None):

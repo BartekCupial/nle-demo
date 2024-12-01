@@ -1,13 +1,12 @@
 import pprint
 
 import pygame
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.babyai.babyai_env import BABYAI_ENVS, make_babyai_env
+from balrog_demo.envs.babyai.babyai_params import add_extra_params_babyai_env
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.play import play
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.babyai.babyai_env import BABYAI_ENVS, make_babyai_env
-from nle_demo.envs.babyai.babyai_params import add_extra_params_babyai_env
 
 
 def register_babyai_envs():

@@ -2,13 +2,12 @@ import pprint
 
 import baba
 import pygame
+from balrog_demo.cfg.cfg import add_extra_params_demo
+from balrog_demo.envs.babaisai.babaisai_env import make_babaisai_env
+from balrog_demo.envs.babaisai.babaisai_params import add_extra_params_babaisai_env
 from nle_utils.cfg.arguments import parse_args, parse_full_cfg
 from nle_utils.envs.env_utils import register_env
 from nle_utils.play import play
-
-from nle_demo.cfg.cfg import add_extra_params_demo
-from nle_demo.envs.babaisai.babaisai_env import make_babaisai_env
-from nle_demo.envs.babaisai.babaisai_params import add_extra_params_babaisai_env
 
 
 def register_babaisai_envs():

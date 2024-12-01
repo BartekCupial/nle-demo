@@ -3,6 +3,7 @@ from typing import Optional
 
 import gym
 import nle  # NOQA: F401
+from balrog_demo.envs.nethack.wrapper import NLEWrapper
 from nle_utils.wrappers import (
     FinalStatsWrapper,
     GymV21CompatibilityV0,
@@ -11,8 +12,6 @@ from nle_utils.wrappers import (
     TaskRewardsInfoWrapper,
     TtyrecInfoWrapper,
 )
-
-from nle_demo.envs.nethack.wrapper import NLEWrapper
 
 NETHACK_ENVS = []
 for env_spec in gym.envs.registry.all():
